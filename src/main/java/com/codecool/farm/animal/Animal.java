@@ -1,6 +1,7 @@
 package com.codecool.farm.animal;
 
 public abstract class Animal {
+
     int size;
 
     public int getSize() {

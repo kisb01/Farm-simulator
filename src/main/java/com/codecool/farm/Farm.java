@@ -1,13 +1,14 @@
 package com.codecool.farm;
 
 import com.codecool.farm.animal.Animal;
+import com.codecool.farm.animal.Pig;
 
 import java.util.ArrayList;
 import java.util.List;
 
 class Farm {
 
-    List<Animal> animals = new ArrayList<>();
+    List<Animal> animals;
 
     public Farm(List<Animal> farm) {
         this.animals = farm;
@@ -37,8 +38,14 @@ class Farm {
     public List<String> getStatus() {
         List<String> result = new ArrayList<>();
         for (Animal animal : animals) {
-            result.add("There is a " + animal.getSize() + " sized " + animal.getClass() + " in the farm.");
+            result.add("There is a " + animal.getSize() + " sized " + getType(animal) + " in the farm.");
         }
         return result;
+    }
+
+    public String getType(Animal animal){
+        if (animal instanceof Pig) {
+            return "pig";
+        } else return "cattle";
     }
 }
